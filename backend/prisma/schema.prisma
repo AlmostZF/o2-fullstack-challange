@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Produto {
+  id               Int            @id @default(autoincrement())
+  codigo_produto   String         @unique
+  name             String
+  descricao        String
+  valor_unitario   Int
+  data_criacao     DateTime       @default(now())
+  data_modificacao DateTime       @updatedAt
+  estoque_minimo   Int
+  ativo            Boolean        @default(true)
+  movimentacoes    Movimentacao[]
+  estoque          Estoque?       @relation("ProdutoEstoque")
+}
+
+
+model Movimentacao {
+  id                     Int              @id @default(autoincrement())
+  produto_id             Int
+  tipo_movimentacao      TipoMovimentacao
+  quantidade_movimentada Int
+  data_movimentacao      DateTime         @default(now())
+  observacao             String
+  produto                Produto          @relation(fields: [produto_id], references: [id])
+  data_criacao           DateTime         @default(now())
+  data_modificacao       DateTime         @updatedAt
+}
+
+model Estoque {
+  id               Int      @id @default(autoincrement())
+  produto_id       Int      @unique
+  quantidade_total Int
+  estoque_minimo   Int
+  data_modificacao DateTime @updatedAt
+  produto          Produto  @relation("ProdutoEstoque", fields: [produto_id], references: [id])
+}
+
+enum TipoMovimentacao {
+  entrada
+  saida
+}
