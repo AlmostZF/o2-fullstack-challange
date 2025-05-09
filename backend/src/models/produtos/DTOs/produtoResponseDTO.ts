@@ -1,3 +1,4 @@
+import { Decimal } from "@prisma/client/runtime/library";
 
 
 export interface ProdutoResponseDTO {
@@ -5,8 +6,9 @@ export interface ProdutoResponseDTO {
     name: string;
     descricao: string;
     codigo_produto: string;
-    // quantidade: number;
-    valor_unitario: number;
+    quantidade: number;
+    tipo_produto: string;
+    valor_unitario: Decimal;
     estoque_minimo: number;
     ativo: boolean;
     data_criacao: Date;

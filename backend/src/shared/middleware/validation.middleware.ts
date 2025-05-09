@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { validate } from 'class-validator';
 
-function validarDto(dtoClass: any) {
+function validateDto(dtoClass: any) {
     return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 
         const dtoInstance = Object.assign(new dtoClass(), req.body);
@@ -22,4 +22,4 @@ function validarDto(dtoClass: any) {
     };
 }
 
-export default validarDto;
+export default validateDto;

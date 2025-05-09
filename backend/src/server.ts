@@ -1,18 +1,18 @@
 import express from 'express';
 import cors from 'cors';
-import { ProdutosRoute } from './routes/produto_route';
-import { ProdutoController } from './models/produtos/produto_controller';
-import ProdutoService from './models/produtos/service/produto_service';
+import { ProdutosRoute } from './routes/produtoRoute';
+import { ProdutoController } from './models/produtos/produtoController';
+import ProdutoService from './models/produtos/service/produtoService';
 
 import env from '../environment';
 import { PrismaClient } from '@prisma/client';
-import MovimentacaoService from './models/movimentacao/service/movimentacao_service';
-import { MovimentacaoController } from './models/movimentacao/movimentacao_controller';
-import { MovimentacaoRoute } from './routes/movimentacao_route';
-import { EstoqueService } from './models/estoque/service/estoque_service';
-import { EstoqueController } from './models/estoque/estoque_controller';
-import { EstoqueRoute } from './routes/estoque_route';
-import { UtilityRoutes } from './routes/utility_route';
+import MovimentacaoService from './models/movimentacao/service/movimentacaoService';
+import { MovimentacaoController } from './models/movimentacao/movimentacaoController';
+import { MovimentacaoRoute } from './routes/movimentacaoRoute';
+import { EstoqueService } from './models/estoque/service/estoqueService';
+import { EstoqueController } from './models/estoque/estoqueController';
+import { EstoqueRoute } from './routes/estoqueRoute';
+import { UtilityRoutes } from './routes/utilityRoute';
 
 
 

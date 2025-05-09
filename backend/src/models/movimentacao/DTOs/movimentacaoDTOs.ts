@@ -1,3 +1,6 @@
+import { Decimal } from "@prisma/client/runtime/library";
+import { ProdutoResponseDTO } from "../../produtos/DTOs/produtoResponseDTO";
+
 export interface MovimentacaoDTO {
     id: number;
     produto_id: number;
@@ -7,4 +10,5 @@ export interface MovimentacaoDTO {
     observacao: string;
     data_criacao: Date;
     data_modificacao: Date;
+    produto?: ProdutoResponseDTO;
 }

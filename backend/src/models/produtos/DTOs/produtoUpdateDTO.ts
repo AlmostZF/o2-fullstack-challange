@@ -5,6 +5,14 @@ export class ProdutoUpdateDTO {
   @IsString()
   @IsNotEmpty()
   name!: string;
+  
+  @IsString()
+  @IsNotEmpty()
+  tipo_produto!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  codigo_produto!: string;
 
   @IsString()
   descricao!: string;

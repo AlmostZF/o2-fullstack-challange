@@ -1,3 +1,4 @@
+import { Decimal } from '@prisma/client/runtime/library';
 import { IsString, IsInt, IsPositive, IsNumber, IsNotEmpty } from 'class-validator';
 
 
@@ -11,6 +12,10 @@ export class ProdutoCreateDTO {
   codigo_produto!: string;
 
   @IsString()
+  @IsNotEmpty()
+  tipo_produto!: string;
+
+  @IsString()
   descricao!: string;
 
   @IsInt()
@@ -19,7 +24,7 @@ export class ProdutoCreateDTO {
 
   @IsNumber()
   @IsPositive()
-  valor_unitario!: number;
+  valor_unitario!: Decimal;
 
   @IsInt()
   @IsPositive()

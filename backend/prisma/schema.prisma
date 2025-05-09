@@ -18,8 +18,9 @@ model Produto {
   id               Int            @id @default(autoincrement())
   codigo_produto   String         @unique
   name             String
+  tipo_produto     String
   descricao        String
-  valor_unitario   Int
+  valor_unitario   Decimal
   data_criacao     DateTime       @default(now())
   data_modificacao DateTime       @updatedAt
   estoque_minimo   Int
